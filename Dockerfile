@@ -1,3 +1,2 @@
-FROM node:latest
+FROM python:latest
 WORKDIR /usr/src/app
-RUN npm install

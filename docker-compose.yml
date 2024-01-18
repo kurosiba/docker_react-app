@@ -1,20 +1,21 @@
 version: '3'
 
 services:
-  node:
-    container_name: node
-
-    build: 
+  db:
+    container_name: db    
+    image: mysql
+    build:
      context: .
-     dockerfile: Dockerfile
-
-    command: sh -c "npm start"
-
     volumes:
-      - ./react-app:/usr/src/app
-        
-    ports:
-      - '3000:3000'
-      
-volumes:
-  node_modules_volume:   
+     - ./db/init:/docker-entrypoint-initdb.d
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+
+  
+
+
+
+
+
+
+
